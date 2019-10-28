@@ -6,6 +6,7 @@ import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
 import StudentController from './app/controllers/StudentController';
 import PlanController from './app/controllers/PlanController';
+import EnrollmentController from './app/controllers/EnrollmentController';
 
 const routes = new Router();
 
@@ -21,5 +22,10 @@ routes.post('/plans', PlanController.store);
 routes.get('/plans', PlanController.index);
 routes.put('/plans/:planId', PlanController.update);
 routes.delete('/plans/:planId', PlanController.delete);
+
+routes.post('/enrollments', EnrollmentController.store);
+routes.get('/enrollments', EnrollmentController.index);
+routes.put('/enrollments/:enrollmentId', EnrollmentController.update);
+routes.delete('/enrollments/:enrollmentId', EnrollmentController.delete);
 
 export default routes;
