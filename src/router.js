@@ -8,6 +8,8 @@ import StudentController from './app/controllers/StudentController';
 import PlanController from './app/controllers/PlanController';
 import EnrollmentController from './app/controllers/EnrollmentController';
 import CheckinController from './app/controllers/CheckinController';
+import HelpOrderController from './app/controllers/HelpOrderController';
+import AnswerController from './app/controllers/AnswerController';
 
 const routes = new Router();
 
@@ -16,11 +18,16 @@ routes.post('/sessions', SessionController.store);
 
 routes.post('/students/:studentId/checkins', CheckinController.store);
 routes.get('/students/:studentId/checkins', CheckinController.index);
+routes.post('/students/:studentId/help-orders', HelpOrderController.store);
 
 routes.use(authMiddleware);
 routes.put('/users', UserController.update);
+
 routes.post('/students', StudentController.store);
 routes.put('/students/:id', StudentController.update);
+routes.get('/students/:studentId/help-orders', HelpOrderController.index);
+
+routes.post('/help-orders/:helpOrderId/answer', AnswerController.store);
 
 routes.post('/plans', PlanController.store);
 routes.get('/plans', PlanController.index);
